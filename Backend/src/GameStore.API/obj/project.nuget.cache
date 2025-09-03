@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "USSQbhM830w=",
+  "dgSpecHash": "b908G+Ii6qE=",
   "success": true,
   "projectFilePath": "/Users/nonitobanojr/repos/GameStore/Backend/src/GameStore.API/GameStore.API.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/nonitobanojr/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/nonitobanojr/.nuget/packages/minimalapis.extensions/0.11.0/minimalapis.extensions.0.11.0.nupkg.sha512",
+    "/Users/nonitobanojr/.nuget/packages/minivalidation/0.8.0/minivalidation.0.8.0.nupkg.sha512"
+  ],
   "logs": []
 }

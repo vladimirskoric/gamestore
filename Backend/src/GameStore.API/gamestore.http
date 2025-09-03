@@ -1,1 +1,30 @@
-GET http://localhost:5029
+GET http://localhost:5029/games
+
+####
+
+GET http://localhost:5029/games/968d2533-27cd-4878-8f72-e59ed4715d2b
+
+####
+POST http://localhost:5029/games
+Content-Type: application/json  
+
+{
+    "name": "PubG",
+    "genre": "Shooter",
+    "price": 59.99,
+    "releaseDate": "2021-12-08"
+}
+
+####
+PUT http://localhost:5029/games/49438bfa-ef75-4ab5-9d00-46bfe1dd367b
+Content-Type: application/json  
+
+{
+    "name": "Fortnite",
+    "genre": "Shooter",
+    "price": 50.99,
+    "releaseDate": "2021-12-08"
+}
+
+###
+DELETE http://localhost:5029/games/e8274569-9ebb-4cef-865b-5f3ff50ab5ce
