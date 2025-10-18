@@ -4,7 +4,7 @@ GET http://localhost:5029/games
 GET http://localhost:5029/genres    
 
 ####
-GET http://localhost:5029/games/600f842e-16f4-456e-bd7b-8bf04f57dc9c
+GET http://localhost:5029/games/E678CF9D-F51C-475D-B6C0-0D3FD827A111
 
 ####
 POST http://localhost:5029/games
@@ -12,19 +12,19 @@ Content-Type: application/json
 
 {
     "name": "PubG",
-    "genreid": "76b7e1a2-fe0a-4200-baa5-7fa0608cbdab",
+    "genreid": "FF882709-9F0D-43C0-9AC3-604000CAE132",
     "price": 59.99,
     "releasedate": "2021-12-08",
     "description": "Battle royale game"
 }
 
 ####
-PUT http://localhost:5029/games/388816e3-97fd-46fb-8900-5f1058cdb5f0
+PUT http://localhost:5029/games/E678CF9D-F51C-475D-B6C0-0D3FD827A111
 Content-Type: application/json  
 
 {
-    "name": "Sherlock Holmes",
-    "genreid": "cc197a1c-b61a-40d7-af24-9c2b94b2b52e",
+    "name": "Sherlock Holmes 2",
+    "genreid": "FF882709-9F0D-43C0-9AC3-604000CAE132",
     "price":60.99,
     "releaseDate": "2021-12-08",
     "description": "Detective adventure game"
