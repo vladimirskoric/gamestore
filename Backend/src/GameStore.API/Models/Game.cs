@@ -13,10 +13,12 @@ public class Game
 
     [Required]
     [StringLength(20)]
-    public required string Genre { get; set; }
+    public required Genre Genre { get; set; }
 
     [Range(1, 100.00)]
     public required decimal Price { get; set; }
-    
+
     public DateOnly ReleaseDate { get; set; }
+    
+    public required string Description { get; set; }
 }
