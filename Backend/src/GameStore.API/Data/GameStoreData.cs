@@ -7,9 +7,9 @@ public class GameStoreData
 {
     private readonly List<Genre> genres =
     [
-        new Genre { Id = Guid.NewGuid(), Name = "Adventure" },
-        new Genre { Id = Guid.NewGuid(), Name = "Action" },
-        new Genre { Id = Guid.NewGuid(), Name = "Strategy" },
+        new Genre { Id = new Guid("47808bf3-b75e-4379-ad2d-41d5e9da516d"), Name = "Adventure" },
+        new Genre { Id = new Guid("76b7e1a2-fe0a-4200-baa5-7fa0608cbdab"), Name = "Action" },
+        new Genre { Id = new Guid("a8e34460-c050-47c8-9cfe-828e1ef1b560"), Name = "Strategy" },
     ];
 
     private readonly List<Game> games;

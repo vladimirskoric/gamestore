@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "name": "PubG",
-    "genreid": "e61c938c-97ca-415c-8240-f7488c9cb8b3",
+    "genreid": "76b7e1a2-fe0a-4200-baa5-7fa0608cbdab",
     "price": 59.99,
     "releasedate": "2021-12-08",
     "description": "Battle royale game"
