@@ -1,7 +1,5 @@
-using System;
 using GameStore.API.Data;
 using GameStore.API.Features.Games.Constants;
-using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.API.Features.Games.GetGame;
 
