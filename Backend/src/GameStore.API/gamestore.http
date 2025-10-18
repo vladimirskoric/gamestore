@@ -4,7 +4,7 @@ GET http://localhost:5029/games
 GET http://localhost:5029/genres    
 
 ####
-GET http://localhost:5029/games/8dbf0b91-91a3-4a97-9f13-f4a6ae026299
+GET http://localhost:5029/games/600f842e-16f4-456e-bd7b-8bf04f57dc9c
 
 ####
 POST http://localhost:5029/games
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "name": "PubG",
-    "genreid": "688a03d4-2109-4ea2-a83d-b632f2ef4c5e",
+    "genreid": "e61c938c-97ca-415c-8240-f7488c9cb8b3",
     "price": 59.99,
     "releasedate": "2021-12-08",
     "description": "Battle royale game"
