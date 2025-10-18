@@ -4,7 +4,7 @@ GET http://localhost:5029/games
 GET http://localhost:5029/genres    
 
 ####
-GET http://localhost:5029/games/dbccb60a-8d4d-493e-ad34-3a678bc65693
+GET http://localhost:5029/games/8dbf0b91-91a3-4a97-9f13-f4a6ae026299
 
 ####
 POST http://localhost:5029/games
@@ -12,23 +12,23 @@ Content-Type: application/json
 
 {
     "name": "PubG",
-    "genreid": "3061b302-2608-4208-abf3-4caee415db3a",
+    "genreid": "688a03d4-2109-4ea2-a83d-b632f2ef4c5e",
     "price": 59.99,
     "releasedate": "2021-12-08",
     "description": "Battle royale game"
 }
 
 ####
-PUT http://localhost:5029/games/781846a2-cfae-49b5-bbdd-e677c4f49947
+PUT http://localhost:5029/games/388816e3-97fd-46fb-8900-5f1058cdb5f0
 Content-Type: application/json  
 
 {
-    "name": "MIssion Impossible",
-    "genreid": "09067a59-02d0-452e-8c3c-65ca6d699a63",
+    "name": "Sherlock Holmes",
+    "genreid": "cc197a1c-b61a-40d7-af24-9c2b94b2b52e",
     "price":60.99,
     "releaseDate": "2021-12-08",
-    "description": "An action packed game based on the famous movie."
+    "description": "Detective adventure game"
 }
 
 ###
-DELETE http://localhost:5029/games/e8274569-9ebb-4cef-865b-5f3ff50ab5ce
+DELETE http://localhost:5029/games/388816e3-97fd-46fb-8900-5f1058cdb5f0
