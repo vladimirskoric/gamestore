@@ -482,3 +482,8 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+
+#Binary
+src/GameStore.API/bin/*.*
+src/GameStore.API/obj/*.*

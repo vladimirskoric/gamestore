@@ -23,6 +23,7 @@ public class GameStoreData
                 Id = Guid.NewGuid(),
                 Name = "The Legend of Zelda: Breath of the Wild",
                 Genre = genres.Find(x=> x.Name == "Adventure")!,
+                GenreId = genres.Find(x=> x.Name == "Adventure")!.Id,
                 Description = "An open-world adventure game set in the land of Hyrule.",
                 Price = 59.99m,
                 ReleaseDate = new DateOnly(2017, 3, 3)
@@ -32,6 +33,7 @@ public class GameStoreData
                 Id = Guid.NewGuid(),
                 Name = "God of War",
                 Genre = genres.Find(x=> x.Name == "Strategy")!,
+                GenreId = genres.Find(x=> x.Name == "Strategy")!.Id,
                 Description = "A story-driven game following Kratos and his son Atreus on a journey through Norse mythology.",
                 Price = 49.99m,
                 ReleaseDate = new DateOnly(2018, 4, 20)
@@ -41,6 +43,7 @@ public class GameStoreData
                 Id = Guid.NewGuid(),
                 Name = "Red Dead Redemption 2",
                 Genre = genres.Find(x=> x.Name == "Action")!,
+                GenreId = genres.Find(x=> x.Name == "Action")!.Id,
                 Description = "An epic tale of life in America's unforgiving heartland.",
                 Price = 39.99m,
                 ReleaseDate = new DateOnly(2018, 10, 26)

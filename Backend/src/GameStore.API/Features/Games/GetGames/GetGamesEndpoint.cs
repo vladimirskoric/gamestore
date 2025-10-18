@@ -11,7 +11,7 @@ public static class GetGamesEndpoint
         (
             x.Id,
             x.Name,
-            x.Genre.Name,
+            x.Genre!.Name,
             x.Price,
             x.ReleaseDate
         )));
