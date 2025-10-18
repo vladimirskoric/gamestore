@@ -14,14 +14,14 @@ List<Genre> genres =
     new Genre { Id = Guid.NewGuid(), Name = "Strategy" },
 ];
 
-List<Game> games = 
+List<Game> games =
 
 [
     new Game
     {
         Id = Guid.NewGuid(),
         Name = "The Legend of Zelda: Breath of the Wild",
-        Genre = genres.Find(x=> x.Name == "Adventure"),
+        Genre = genres.Find(x=> x.Name == "Adventure")!,
         Description = "An open-world adventure game set in the land of Hyrule.",
         Price = 59.99m,
         ReleaseDate = new DateOnly(2017, 3, 3)
@@ -30,7 +30,7 @@ List<Game> games =
     {
         Id = Guid.NewGuid(),
         Name = "God of War",
-        Genre = genres.Find(x=> x.Name == "Strategy"),
+        Genre = genres.Find(x=> x.Name == "Strategy")!,
         Description = "A story-driven game following Kratos and his son Atreus on a journey through Norse mythology.",
         Price = 49.99m,
         ReleaseDate = new DateOnly(2018, 4, 20)
@@ -39,12 +39,15 @@ List<Game> games =
     {
         Id = Guid.NewGuid(),
         Name = "Red Dead Redemption 2",
-        Genre = genres.Find(x=> x.Name == "Action"),
+        Genre = genres.Find(x=> x.Name == "Action")!,
         Description = "An epic tale of life in America's unforgiving heartland.",
         Price = 39.99m,
         ReleaseDate = new DateOnly(2018, 10, 26)
     }
 ];
+
+// Get /genres
+app.MapGet("/genres", () => genres);
 
 // GET  /games
 app.MapGet("/games", () => games.Select(x=> new GameSummaryDTO
@@ -107,7 +110,7 @@ app.MapPost("/games", (CreateGameDTO newGame) =>
 }).WithParameterValidation();
 
 //PUT /games/{id}
-app.MapPut("/games/{id}", (Guid id, Game updatedGame) =>
+app.MapPut("/games/{id}", (Guid id, UpdateGameDTO updatedGame) =>
 {
     var existingGame = games.Find(game => game.Id == id);
 
@@ -116,8 +119,14 @@ app.MapPut("/games/{id}", (Guid id, Game updatedGame) =>
         return Results.NotFound();
     }
 
+    var genre = genres.FirstOrDefault(g => g.Id == updatedGame.GenreId);
+    if (genre is null)
+    {
+        return Results.BadRequest($"Genre with Id {updatedGame.GenreId} does not exist.");
+    }
+
     existingGame.Name = updatedGame.Name;
-    existingGame.Genre = updatedGame.Genre;
+    existingGame.Genre = genre;
     existingGame.Price = updatedGame.Price;
     existingGame.ReleaseDate = updatedGame.ReleaseDate;
 
@@ -140,6 +149,13 @@ public record GameDetailsDTO(Guid Id, string Name, Guid GenreId, decimal Price, 
 public record GameSummaryDTO(Guid Id, string Name, Guid GenreId, decimal Price);    
 
 public record CreateGameDTO(
+    [Required][StringLength(50)] string Name,
+    Guid GenreId,
+    [Range(1,100)] decimal Price,
+    DateOnly ReleaseDate,
+    [Required][StringLength(500)] string Description);
+
+public record UpdateGameDTO(
     [Required][StringLength(50)] string Name,
     Guid GenreId,
     [Range(1,100)] decimal Price,

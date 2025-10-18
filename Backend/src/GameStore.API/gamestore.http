@@ -1,5 +1,8 @@
 GET http://localhost:5029/games
 
+###
+GET http://localhost:5029/genres    
+
 ####
 GET http://localhost:5029/games/dbccb60a-8d4d-493e-ad34-3a678bc65693
 
@@ -16,14 +19,15 @@ Content-Type: application/json
 }
 
 ####
-PUT http://localhost:5029/games/49438bfa-ef75-4ab5-9d00-46bfe1dd367b
+PUT http://localhost:5029/games/781846a2-cfae-49b5-bbdd-e677c4f49947
 Content-Type: application/json  
 
 {
-    "name": "Fortnite",
-    "genre": "Shooter",
-    "price": 50.99,
-    "releaseDate": "2021-12-08"
+    "name": "MIssion Impossible",
+    "genreid": "09067a59-02d0-452e-8c3c-65ca6d699a63",
+    "price":60.99,
+    "releaseDate": "2021-12-08",
+    "description": "An action packed game based on the famous movie."
 }
 
 ###
