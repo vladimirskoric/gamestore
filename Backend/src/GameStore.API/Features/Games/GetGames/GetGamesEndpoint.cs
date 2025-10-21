@@ -8,8 +8,8 @@ public static class GetGamesEndpoint
 {
     public static void MapGetGames(this IEndpointRouteBuilder? app)
     {
-        app?.MapGet("/", (GameStoreContext dbContext) =>
-        dbContext.Games.Include(game => game.Genre)
+        app?.MapGet("/", async (GameStoreContext dbContext) =>
+        await dbContext.Games.Include(game => game.Genre)
             .Select(x => new GameSummaryDTO
             (
                 x.Id,
@@ -17,6 +17,7 @@ public static class GetGamesEndpoint
                 x.Genre!.Name,
                 x.Price,
                 x.ReleaseDate
-            )).AsNoTracking());
+            )).AsNoTracking()
+              .ToListAsync());
     }
 }

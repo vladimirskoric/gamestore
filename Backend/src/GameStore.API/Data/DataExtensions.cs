@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using GameStore.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,15 +7,15 @@ namespace GameStore.API.Data;
 
 public static class DataExtensions
 {
-    public static void MigratedDB(this WebApplication app)
+    public static async Task MigrateAsync(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<GameStoreContext>();
 
-        dbContext.Database.Migrate();
+        await dbContext.Database.MigrateAsync();
     }
 
-    public static void SeedDB(this WebApplication app)
+    public static async Task SeedDBAsync(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<GameStoreContext>();
@@ -31,12 +32,12 @@ public static class DataExtensions
             );
         }
 
-        dbContext.SaveChanges();
+       await dbContext.SaveChangesAsync();
     }
 
-    public static void InitializeDb(this WebApplication app)
+    public static async Task InitializeDb(this WebApplication app)
     {
-        app.MigratedDB();
-        app.SeedDB();
+        await app.MigrateAsync();
+        await app.SeedDBAsync();
     }
 }
