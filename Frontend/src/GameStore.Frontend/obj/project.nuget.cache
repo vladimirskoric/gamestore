@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y8E0g629DMU=",
+  "success": true,
+  "projectFilePath": "/Users/nonitobanojr/repos/GameStore/Frontend/src/GameStore.Frontend/GameStore.Frontend.csproj",
+  "expectedPackageFiles": [
+    "/Users/nonitobanojr/.nuget/packages/microsoft.aspnetcore.components.webassembly.server/8.0.8/microsoft.aspnetcore.components.webassembly.server.8.0.8.nupkg.sha512",
+    "/Users/nonitobanojr/.nuget/packages/microsoft.netcore.app.ref/8.0.11/microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "/Users/nonitobanojr/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.11/microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512",
+    "/Users/nonitobanojr/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.11/microsoft.netcore.app.host.osx-arm64.8.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

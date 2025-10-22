@@ -35,9 +35,11 @@ public static class DataExtensions
        await dbContext.SaveChangesAsync();
     }
 
-    public static async Task InitializeDb(this WebApplication app)
+    public static async Task InitializeDbAsync(this WebApplication app)
     {
         await app.MigrateAsync();
         await app.SeedDBAsync();
+
+        app.Logger.LogInformation(02, "Database is ready.");      
     }
 }
