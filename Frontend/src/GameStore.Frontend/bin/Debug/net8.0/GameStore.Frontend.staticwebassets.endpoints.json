@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 19 Oct 2025 21:05:26 GMT"
+          "Value": "Thu, 23 Oct 2025 02:41:09 GMT"
         }
       ],
       "EndpointProperties": [
@@ -74,7 +74,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 19 Oct 2025 21:05:26 GMT"
+          "Value": "Thu, 23 Oct 2025 02:41:09 GMT"
         }
       ],
       "EndpointProperties": [
@@ -245,6 +245,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-qloXYKVcx2Kn3x14r+gZKIJ5wCu1mAGreRNOEn3fKG8="
+        }
+      ]
+    },
+    {
+      "Route": "js/previewImage.js",
+      "AssetFile": "js/previewImage.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WTWOSdyjBhSSzEPqwtJ4VUm+9xUWXNVH1NQm1I4HxY4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Jun 2024 13:14:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WTWOSdyjBhSSzEPqwtJ4VUm+9xUWXNVH1NQm1I4HxY4="
+        }
+      ]
+    },
+    {
+      "Route": "js/previewImage.viwog8u0l6.js",
+      "AssetFile": "js/previewImage.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WTWOSdyjBhSSzEPqwtJ4VUm+9xUWXNVH1NQm1I4HxY4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Jun 2024 13:14:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "viwog8u0l6"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WTWOSdyjBhSSzEPqwtJ4VUm+9xUWXNVH1NQm1I4HxY4="
+        },
+        {
+          "Name": "label",
+          "Value": "js/previewImage.js"
         }
       ]
     }

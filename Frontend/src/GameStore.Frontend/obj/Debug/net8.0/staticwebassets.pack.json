@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
+      "Id": "/Users/nonitobanojr/repos/GameStore/Frontend/src/GameStore.Frontend/wwwroot/js/previewImage.js",
+      "PackagePath": "staticwebassets/js/previewImage.js"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.GameStore.Frontend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
