@@ -1,5 +1,4 @@
-using System;
-using GameStore.API.Data;
+using GameStore.Api.Data;
 
 namespace GameStore.API.Features.Games.UpdateGame;
 

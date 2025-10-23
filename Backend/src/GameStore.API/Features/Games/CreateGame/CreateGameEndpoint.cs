@@ -1,7 +1,7 @@
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games.Constants;
-using GameStore.Api.Models;
 using GameStore.Api.Shared.FileUpload;
+using GameStore.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameStore.Api.Features.Games.CreateGame;

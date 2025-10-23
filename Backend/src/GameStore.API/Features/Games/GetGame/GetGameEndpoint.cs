@@ -1,8 +1,6 @@
-using System.Diagnostics;
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games.Constants;
-using GameStore.Api.Models;
-using Microsoft.Data.Sqlite;
+using GameStore.API.Models;
 
 namespace GameStore.Api.Features.Games.GetGame;
 
