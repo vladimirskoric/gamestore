@@ -1,18 +1,23 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GameStore.API.Features.Games.CreateGame;
+namespace GameStore.Api.Features.Games.CreateGame;
 
-public record CreateGameDTO(
+public record CreateGameDto(
     [Required][StringLength(50)] string Name,
     Guid GenreId,
-    [Range(1,100)] decimal Price,
+    [Range(1, 100)] decimal Price,
     DateOnly ReleaseDate,
-    [Required][StringLength(500)] string Description);
+    [Required][StringLength(500)] string Description
+)
+{
+    public IFormFile? ImageFile { get; set; }
+}
 
-public record GameDetailsDTO(
+public record GameDetailsDto(
     Guid Id,
     string Name,
     Guid GenreId,
     decimal Price,
     DateOnly ReleaseDate,
-    string Description);
+    string Description,
+    string ImageUri);

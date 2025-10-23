@@ -1,9 +1,8 @@
 using System;
 
-namespace GameStore.API.Features.Games.Constants;
+namespace GameStore.Api.Features.Games.Constants;
 
 public static class EndpointNames
 {
-    public const string GetGameEndpointName = nameof(GetGame);
-
+    public const string GetGame = nameof(GetGame);
 }

@@ -1,12 +1,10 @@
-using System.ComponentModel.DataAnnotations;
+namespace GameStore.Api.Features.Games.GetGame;
 
-namespace GameStore.API.Features.Games.GetGame;
-
-public record GameDetailsDTO(
+public record GameDetailsDto(
     Guid Id,
     string Name,
     Guid GenreId,
     decimal Price,
     DateOnly ReleaseDate,
-    string Description);
-
+    string Description,
+    string ImageUri);

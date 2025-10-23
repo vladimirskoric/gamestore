@@ -1,0 +1,34 @@
+GET http://localhost:5082/games?name=final
+
+###
+GET http://localhost:5082/games/8a75cb77-5df0-4baa-a68d-40abc96d72a9
+
+###
+POST http://localhost:5082/games
+Content-Type: application/json
+
+{
+    "name": " Forza Horizon 5",
+    "genreId": "B37BA1A3-4458-4755-9604-F5CF22C00F49",
+    "price": 59.99,
+    "releaseDate": "2021-11-05",
+    "description": "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico in hundreds of the world’s greatest cars."
+}
+
+###
+PUT http://localhost:5082/games/8a75cb77-5df0-4baa-a68d-40abc96d72a9
+Content-Type: application/json
+
+{
+  "name": "Final Fantasy XIV",
+  "genreId": "784714cf-8dc5-4261-8ee4-98603802abe7",
+  "price": 39.97,
+  "releaseDate": "2010-09-30",
+  "description": "Join over 27 million adventurers worldwide and take part in an epic and ever-changing FINAL FANTASY. Experience an unforgettable story, exhilarating battles, and a myriad of captivating environments to explore."
+}
+
+###
+DELETE http://localhost:5082/games/a0eaa60b-058c-4ec4-9412-2c0913725b06
+
+###
+GET http://localhost:5082/genres

@@ -1,47 +1,74 @@
-using System;
-using GameStore.API.Data;
-using GameStore.API.Features.Games.Constants;
-using GameStore.API.Models;
+using GameStore.Api.Data;
+using GameStore.Api.Features.Games.Constants;
+using GameStore.Api.Models;
+using GameStore.Api.Shared.FileUpload;
+using Microsoft.AspNetCore.Mvc;
 
-namespace GameStore.API.Features.Games.CreateGame;
+namespace GameStore.Api.Features.Games.CreateGame;
 
 public static class CreateGameEndpoint
 {
-    public static void MapCreateGame(this IEndpointRouteBuilder? app)
+    private const string DefaultImageUri = "https://placehold.co/100";
+
+    public static void MapCreateGame(this IEndpointRouteBuilder app)
     {
-        app?.MapPost("/", async (
-                    CreateGameDTO newGame,
-                    GameStoreContext dbContext,
-                    ILogger<Program> logger) =>
+        // POST /games
+        app.MapPost("/", async (
+            [FromForm] CreateGameDto gameDto,
+            GameStoreContext dbContext,
+            ILogger<Program> logger,
+            FileUploader fileUploader) =>
         {
+            var imageUri = DefaultImageUri;
+
+            if (gameDto.ImageFile is not null)
+            {
+                var fileUploadResult = await fileUploader.UploadFileAsync(
+                    gameDto.ImageFile,
+                    StorageNames.GameImagesFolder
+                );
+
+                if (!fileUploadResult.IsSucess)
+                {
+                    return Results.BadRequest(new { message = fileUploadResult.ErrorMessage});
+                }
+
+                imageUri = fileUploadResult.FileUrl;
+            }
+
             var game = new Game
             {
-                Name = newGame.Name,
-                GenreId = newGame.GenreId,
-                Price = newGame.Price,
-                ReleaseDate = newGame.ReleaseDate,
-                Description = newGame.Description
+                Name = gameDto.Name,
+                GenreId = gameDto.GenreId,
+                Price = gameDto.Price,
+                ReleaseDate = gameDto.ReleaseDate,
+                Description = gameDto.Description,
+                ImageUri = imageUri!
             };
 
             dbContext.Games.Add(game);
+
             await dbContext.SaveChangesAsync();
 
-            logger.LogTrace("Created game {GameName} with price {GamePrice}",
-                                  game.Name, game.Price);
+            logger.LogInformation(
+                "Created game {GameName} with price {GamePrice}",
+                game.Name,
+                game.Price);
 
             return Results.CreatedAtRoute(
-                    EndpointNames.GetGameEndpointName,
-                    new { id = game.Id },
-                    new GameDetailsDTO
-                    (
-                        game.Id,
-                        game.Name,
-                        game.GenreId,
-                        game.Price,
-                        game.ReleaseDate,
-                        game.Description
-                    ));
-
-        }).WithParameterValidation();
+                EndpointNames.GetGame,
+                new { id = game.Id },
+                new GameDetailsDto(
+                    game.Id,
+                    game.Name,
+                    game.GenreId,
+                    game.Price,
+                    game.ReleaseDate,
+                    game.Description,
+                    game.ImageUri
+                ));
+        })
+        .WithParameterValidation()
+        .DisableAntiforgery();
     }
 }

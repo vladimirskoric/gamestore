@@ -1,8 +1,8 @@
 using System;
-using GameStore.API.Models;
+using GameStore.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GameStore.API.Data;
+namespace GameStore.Api.Data;
 
 public class GameStoreContext(DbContextOptions<GameStoreContext> options) 
     : DbContext(options)
