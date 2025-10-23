@@ -7,4 +7,5 @@ public record UpdateGameDTO(
     Guid GenreId,
     [Range(1, 100)] decimal Price,
     DateOnly ReleaseDate,
-    [Required][StringLength(500)] string Description);
+    [Required][StringLength(500)] string Description,
+    IFormFile ImageFile);

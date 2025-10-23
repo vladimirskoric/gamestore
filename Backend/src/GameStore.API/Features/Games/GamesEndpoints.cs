@@ -1,8 +1,9 @@
 using GameStore.Api.Features.Games.CreateGame;
 using GameStore.Api.Features.Games.DeleteGame;
 using GameStore.Api.Features.Games.GetGame;
-using GameStore.API.Features.Games.GetGames;
-using GameStore.API.Features.Games.UpdateGame;
+using GameStore.Api.Features.Games.GetGames;
+using GameStore.Api.Features.Games.UpdateGame;
+
 
 namespace GameStore.Api.Features.Games;
 
