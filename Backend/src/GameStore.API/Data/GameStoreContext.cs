@@ -1,3 +1,4 @@
+using GameStore.Api.Models;
 using GameStore.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,4 +10,8 @@ public class GameStoreContext(DbContextOptions<GameStoreContext> options)
     public DbSet<Game> Games => Set<Game>();
 
     public DbSet<Genre> Genres => Set<Genre>();
+
+    public DbSet<CustomerBasket> CustomerBaskets => Set<CustomerBasket>();
+
+    public DbSet<BasketItem> BasketItems => Set<BasketItem>();
 }
