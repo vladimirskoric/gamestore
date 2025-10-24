@@ -1,10 +1,10 @@
-GET http://localhost:5082/games?name=final
+GET http://localhost:5029/games
 
 ###
-GET http://localhost:5082/games/8a75cb77-5df0-4baa-a68d-40abc96d72a9
+GET http://localhost:5029/games/8a75cb77-5df0-4baa-a68d-40abc96d72a9
 
 ###
-POST http://localhost:5082/games
+POST http://localhost:5029/games
 Content-Type: application/json
 
 {
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5082/games/8a75cb77-5df0-4baa-a68d-40abc96d72a9
+PUT http://localhost:5029/games/8a75cb77-5df0-4baa-a68d-40abc96d72a9
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5082/games/a0eaa60b-058c-4ec4-9412-2c0913725b06
+DELETE http://localhost:5029/games/a0eaa60b-058c-4ec4-9412-2c0913725b06
 
 ###
-GET http://localhost:5082/genres
+GET http://localhost:5029/genres

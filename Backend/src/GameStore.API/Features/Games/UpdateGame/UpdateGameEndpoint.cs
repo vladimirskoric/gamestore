@@ -1,3 +1,5 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games.Constants;
 using GameStore.Api.Shared.FileUpload;
@@ -15,8 +17,15 @@ public static class UpdateGameEndpoint
             Guid id,
             [FromForm] UpdateGameDTO gameDto,
             GameStoreContext dbContext,
-            FileUploader fileUploader) =>
+            FileUploader fileUploader,
+            ClaimsPrincipal user) =>
         {
+            var currentUserId = user.FindFirstValue(JwtRegisteredClaimNames.Sub);
+            if (string.IsNullOrWhiteSpace(currentUserId))
+            {
+                return Results.Unauthorized();
+            }
+            
             var existingGame = await dbContext.Games.FindAsync(id);
 
             if (existingGame is null)
@@ -44,6 +53,7 @@ public static class UpdateGameEndpoint
             existingGame.Price = gameDto.Price;
             existingGame.ReleaseDate = gameDto.ReleaseDate;
             existingGame.Description = gameDto.Description;
+            existingGame.LastUpdatedBy = currentUserId;
 
             await dbContext.SaveChangesAsync();
 

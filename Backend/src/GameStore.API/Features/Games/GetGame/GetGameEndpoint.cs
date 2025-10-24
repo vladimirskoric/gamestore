@@ -24,7 +24,8 @@ public static class GetGameEndpoint
                                     game.Price,
                                     game.ReleaseDate,
                                     game.Description,
-                                    game.ImageUri
+                                    game.ImageUri,
+                                    game.LastUpdatedBy
                                 ));
         })
         .WithName(EndpointNames.GetGame);
