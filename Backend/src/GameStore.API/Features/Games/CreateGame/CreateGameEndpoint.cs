@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games.Constants;
 using GameStore.Api.Shared.FileUpload;
@@ -17,8 +18,14 @@ public static class CreateGameEndpoint
             [FromForm] CreateGameDto gameDto,
             GameStoreContext dbContext,
             ILogger<Program> logger,
-            FileUploader fileUploader) =>
+            FileUploader fileUploader,
+            ClaimsPrincipal user) =>
         {
+            if (user.Identity is null || !user.Identity.IsAuthenticated)
+            {
+                return Results.Unauthorized();
+            }
+            
             var imageUri = DefaultImageUri;
 
             if (gameDto.ImageFile is not null)
