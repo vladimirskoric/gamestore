@@ -1,5 +1,3 @@
-using GameStore.API.Models;
-
 namespace GameStore.Api.Models;
 
 public class BasketItem
@@ -10,7 +8,7 @@ public class BasketItem
 
     public Guid GameId { get; set; }
 
-    public int Quantity { get; set; }   
+    public int Quantity { get; set; }
 
     public Guid CustomerBasketId { get; set; }
 }

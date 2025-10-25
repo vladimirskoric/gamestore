@@ -1,9 +1,10 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games.Constants;
+using GameStore.Api.Models;
 using GameStore.Api.Shared.FileUpload;
-using GameStore.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameStore.Api.Features.Games.CreateGame;
@@ -22,18 +23,18 @@ public static class CreateGameEndpoint
             FileUploader fileUploader,
             ClaimsPrincipal user) =>
         {
-            if (user.Identity is null || !user.Identity.IsAuthenticated)
+            if (user?.Identity?.IsAuthenticated == false)
             {
                 return Results.Unauthorized();
             }
 
-            var currentUserId = user.FindFirstValue(JwtRegisteredClaimNames.Sub);
+            var currentUserId = user?.FindFirstValue(JwtRegisteredClaimNames.Sub);
 
-            if (string.IsNullOrWhiteSpace(currentUserId))
+            if (string.IsNullOrEmpty(currentUserId))
             {
                 return Results.Unauthorized();
             }
-            
+
             var imageUri = DefaultImageUri;
 
             if (gameDto.ImageFile is not null)
@@ -45,7 +46,7 @@ public static class CreateGameEndpoint
 
                 if (!fileUploadResult.IsSucess)
                 {
-                    return Results.BadRequest(new { message = fileUploadResult.ErrorMessage});
+                    return Results.BadRequest(new { message = fileUploadResult.ErrorMessage });
                 }
 
                 imageUri = fileUploadResult.FileUrl;
@@ -81,7 +82,8 @@ public static class CreateGameEndpoint
                     game.Price,
                     game.ReleaseDate,
                     game.Description,
-                    game.ImageUri
+                    game.ImageUri,
+                    game.LastUpdatedBy
                 ));
         })
         .WithParameterValidation()

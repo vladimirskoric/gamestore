@@ -1,7 +1,4 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace GameStore.API.Models;
+namespace GameStore.Api.Models;
 
 public class Game
 {
@@ -13,10 +10,10 @@ public class Game
 
     public Guid GenreId { get; set; }
 
-    public required decimal Price { get; set; }
+    public decimal Price { get; set; }
 
     public DateOnly ReleaseDate { get; set; }
-    
+
     public required string Description { get; set; }
 
     public required string ImageUri { get; set; }

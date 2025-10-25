@@ -1,10 +1,8 @@
-using System;
-
-namespace GameStore.API.Models;
+namespace GameStore.Api.Models;
 
 public class Genre
 {
     public Guid Id { get; set; }
-    public required string Name { get; set; }
 
+    public required string Name { get; set; }
 }

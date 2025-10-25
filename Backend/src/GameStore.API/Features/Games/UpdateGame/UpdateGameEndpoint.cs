@@ -3,7 +3,6 @@ using System.Security.Claims;
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games.Constants;
 using GameStore.Api.Shared.FileUpload;
-using GameStore.API.Features.Games.UpdateGame;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameStore.Api.Features.Games.UpdateGame;
@@ -15,17 +14,18 @@ public static class UpdateGameEndpoint
         // PUT /games/122233-434d-43434....
         app.MapPut("/{id}", async (
             Guid id,
-            [FromForm] UpdateGameDTO gameDto,
+            [FromForm] UpdateGameDto gameDto,
             GameStoreContext dbContext,
             FileUploader fileUploader,
             ClaimsPrincipal user) =>
         {
-            var currentUserId = user.FindFirstValue(JwtRegisteredClaimNames.Sub);
-            if (string.IsNullOrWhiteSpace(currentUserId))
+            var currentUserId = user?.FindFirstValue(JwtRegisteredClaimNames.Sub);
+
+            if (string.IsNullOrEmpty(currentUserId))
             {
                 return Results.Unauthorized();
             }
-            
+
             var existingGame = await dbContext.Games.FindAsync(id);
 
             if (existingGame is null)
