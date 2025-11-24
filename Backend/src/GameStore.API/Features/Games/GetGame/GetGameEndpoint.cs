@@ -30,6 +30,7 @@ public static class GetGameEndpoint
                                     game.LastUpdatedBy
                                 ));
         })
-        .WithName(EndpointNames.GetGame);
+        .WithName(EndpointNames.GetGame)
+        .AllowAnonymous();
     }
 }

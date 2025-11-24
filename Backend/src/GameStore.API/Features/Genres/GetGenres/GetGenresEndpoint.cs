@@ -14,6 +14,7 @@ public static class GetGenresEndpoint
             await dbContext.Genres
                      .Select(genre => new GenreDto(genre.Id, genre.Name))
                      .AsNoTracking()
-                     .ToListAsync());
+                     .ToListAsync())
+           .AllowAnonymous();
     }
 }
