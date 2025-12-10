@@ -33,35 +33,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor()
                 .AddSingleton<FileUploader>();
 
-builder.Services.AddSingleton<KeycloakClaimsTransformer>();
-
-builder.Services.AddAuthentication(Schemes.Keycloak)
-                .AddJwtBearer(options =>
-                {
-                    options.MapInboundClaims = false;
-                    options.TokenValidationParameters.RoleClaimType = ClaimTypes.Role;
-                })
-                .AddJwtBearer(Schemes.Keycloak, options =>
-                {
-                    options.Authority = "http://localhost:8080/realms/gamestore";
-                    options.Audience = "gamestore-api";
-                    options.MapInboundClaims = false;
-                    options.TokenValidationParameters.RoleClaimType = ClaimTypes.Role;
-                    options.RequireHttpsMetadata = false;
-                    options.Events = new JwtBearerEvents
-                    {
-                        OnTokenValidated = context =>
-                        {
-                            var transformer = context.HttpContext
-                                                     .RequestServices
-                                                     .GetRequiredService<KeycloakClaimsTransformer>();
-                            transformer.Transform(context);
-
-                            return Task.CompletedTask;
-                        }
-                    };
-                });
-
+builder.AddGameStoreAuthentication();
 builder.AddGameStoreAuthorization();
 builder.Services.AddSingleton<IAuthorizationHandler, BasketAuthorizationHandler>();
 
