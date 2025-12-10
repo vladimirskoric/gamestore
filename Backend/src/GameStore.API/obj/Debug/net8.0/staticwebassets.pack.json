@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/GameImages/92d1dcb3-588e-4617-b128-344cf3d9def5.jpg"
     },
     {
+      "Id": "/Users/nonitobanojr/repos/GameStore/Backend/src/GameStore.Api/wwwroot/GameImages/ae234003-3363-43d4-98a4-25e53e137b2a.jpg",
+      "PackagePath": "staticwebassets/GameImages/ae234003-3363-43d4-98a4-25e53e137b2a.jpg"
+    },
+    {
       "Id": "/Users/nonitobanojr/repos/GameStore/Backend/src/GameStore.Api/wwwroot/GameImages/b1765b29-4fdb-4c03-8e8c-3320aa3e0a19.png",
       "PackagePath": "staticwebassets/GameImages/b1765b29-4fdb-4c03-8e8c-3320aa3e0a19.png"
     },

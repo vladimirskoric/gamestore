@@ -33,6 +33,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor()
                 .AddSingleton<FileUploader>();
 
+builder.Services.AddSingleton<KeycloakClaimsTransformer>();
+
 builder.Services.AddAuthentication(Schemes.Keycloak)
                 .AddJwtBearer(options =>
                 {
@@ -50,12 +52,10 @@ builder.Services.AddAuthentication(Schemes.Keycloak)
                     {
                         OnTokenValidated = context =>
                         {
-                            var claims = context.Principal?.Claims;
-
-                            if(claims is null)
-                            {
-                                return Task.CompletedTask;
-                            }
+                            var transformer = context.HttpContext
+                                                     .RequestServices
+                                                     .GetRequiredService<KeycloakClaimsTransformer>();
+                            transformer.Transform(context);
 
                             return Task.CompletedTask;
                         }
