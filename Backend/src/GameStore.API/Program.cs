@@ -6,7 +6,6 @@ using GameStore.Api.Features.Genres;
 using GameStore.Api.Shared.Authorization;
 using GameStore.Api.Shared.ErrorHandling;
 using GameStore.Api.Shared.FileUpload;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.HttpLogging;
 
